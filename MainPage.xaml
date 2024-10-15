@@ -1,0 +1,36 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="counterere.MainPage"
+             Title="counterere">
+
+	<VerticalStackLayout Padding="20">
+
+		<!-- Dodawanie liczników -->
+		<Button Text="Dodaj licznik" Clicked="OnAddCounterClicked" />
+
+		<!-- Lista liczników -->
+		<CollectionView x:Name="CounterList" SelectionMode="None">
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<VerticalStackLayout Margin="10">
+						<!-- Nazwa licznika -->
+						<Label Text="{Binding Name}" FontSize="20" TextColor="{Binding Color}" />
+
+						<!-- Sterowanie wartością licznika -->
+						<HorizontalStackLayout>
+							<Button Text="-" Clicked="OnMinusClicked" />
+							<Label Text="{Binding Value}" FontSize="20" VerticalOptions="Center" />
+							<Button Text="+" Clicked="OnPlusClicked" />
+						</HorizontalStackLayout>
+
+						<!-- Resetowanie licznika -->
+						<Button Text="Resetuj licznik" Clicked="OnResetClicked" />
+
+						<!-- Usuwanie licznika -->
+						<Button Text="Usuń licznik" Clicked="OnDeleteCounterClicked" />
+					</VerticalStackLayout>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+		</CollectionView>
+	</VerticalStackLayout>
+</ContentPage>
